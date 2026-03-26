@@ -1,0 +1,2 @@
+Vtestharness_gpio_reg_pkg__Slow.o: Vtestharness_gpio_reg_pkg__Slow.cpp \
+ Vtestharness__pch.h Vtestharness__Syms.h Vtestharness_gpio_reg_pkg.h

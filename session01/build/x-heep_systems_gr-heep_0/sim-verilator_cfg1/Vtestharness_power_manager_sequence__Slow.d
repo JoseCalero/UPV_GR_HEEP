@@ -1,0 +1,3 @@
+Vtestharness_power_manager_sequence__Slow.o: \
+ Vtestharness_power_manager_sequence__Slow.cpp Vtestharness__pch.h \
+ Vtestharness__Syms.h Vtestharness_power_manager_sequence.h

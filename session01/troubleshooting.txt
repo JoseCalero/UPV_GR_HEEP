@@ -1,0 +1,6 @@
+﻿1. No module named tabulate
+- solution> python3 -m pip install tabulate
+2. LIB_BUSY
+- solution> lsusb
+# note Bus BBB Device DDD for 0403:6010
+sudo fuser -v /dev/bus/usb/BBB/DDD

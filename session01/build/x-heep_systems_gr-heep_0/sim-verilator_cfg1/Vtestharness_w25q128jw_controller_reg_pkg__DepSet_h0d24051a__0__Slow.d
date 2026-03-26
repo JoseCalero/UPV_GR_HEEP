@@ -1,0 +1,3 @@
+Vtestharness_w25q128jw_controller_reg_pkg__DepSet_h0d24051a__0__Slow.o: \
+ Vtestharness_w25q128jw_controller_reg_pkg__DepSet_h0d24051a__0__Slow.cpp \
+ Vtestharness__pch.h Vtestharness_w25q128jw_controller_reg_pkg.h

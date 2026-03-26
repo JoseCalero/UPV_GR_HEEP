@@ -1,0 +1,3 @@
+Vtestharness_serial_link_single_channel_reg_pkg__DepSet_h7427c35c__0__Slow.o: \
+ Vtestharness_serial_link_single_channel_reg_pkg__DepSet_h7427c35c__0__Slow.cpp \
+ Vtestharness__pch.h Vtestharness_serial_link_single_channel_reg_pkg.h

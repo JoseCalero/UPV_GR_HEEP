@@ -1,0 +1,3 @@
+Vtestharness_i2s_reg_pkg__DepSet_h2eb87c6e__0__Slow.o: \
+ Vtestharness_i2s_reg_pkg__DepSet_h2eb87c6e__0__Slow.cpp \
+ Vtestharness__pch.h Vtestharness_i2s_reg_pkg.h

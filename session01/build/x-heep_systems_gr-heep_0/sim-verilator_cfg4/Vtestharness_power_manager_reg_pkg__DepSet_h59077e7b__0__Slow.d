@@ -1,0 +1,3 @@
+Vtestharness_power_manager_reg_pkg__DepSet_h59077e7b__0__Slow.o: \
+ Vtestharness_power_manager_reg_pkg__DepSet_h59077e7b__0__Slow.cpp \
+ Vtestharness__pch.h Vtestharness_power_manager_reg_pkg.h

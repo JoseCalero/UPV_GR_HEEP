@@ -1,0 +1,28 @@
+// Verilated -*- C++ -*-
+// DESCRIPTION: Verilator output: Design implementation internals
+// See Vtestharness.h for the primary calling header
+
+#include "Vtestharness__pch.h"
+#include "Vtestharness__Syms.h"
+#include "Vtestharness_core_v_mini_mcu_pkg.h"
+
+// Parameter definitions for Vtestharness_core_v_mini_mcu_pkg
+constexpr VlUnpacked<IData/*31:0*/, 1> Vtestharness_core_v_mini_mcu_pkg::__PVT__DMA_XBAR_MASTERS;
+
+
+void Vtestharness_core_v_mini_mcu_pkg___ctor_var_reset(Vtestharness_core_v_mini_mcu_pkg* vlSelf);
+
+Vtestharness_core_v_mini_mcu_pkg::Vtestharness_core_v_mini_mcu_pkg(Vtestharness__Syms* symsp, const char* v__name)
+    : VerilatedModule{v__name}
+    , vlSymsp{symsp}
+ {
+    // Reset structure values
+    Vtestharness_core_v_mini_mcu_pkg___ctor_var_reset(this);
+}
+
+void Vtestharness_core_v_mini_mcu_pkg::__Vconfigure(bool first) {
+    (void)first;  // Prevent unused variable warning
+}
+
+Vtestharness_core_v_mini_mcu_pkg::~Vtestharness_core_v_mini_mcu_pkg() {
+}

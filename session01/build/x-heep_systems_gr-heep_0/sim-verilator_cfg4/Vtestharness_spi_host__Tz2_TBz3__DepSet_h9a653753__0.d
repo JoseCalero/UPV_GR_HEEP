@@ -1,0 +1,3 @@
+Vtestharness_spi_host__Tz2_TBz3__DepSet_h9a653753__0.o: \
+ Vtestharness_spi_host__Tz2_TBz3__DepSet_h9a653753__0.cpp \
+ Vtestharness__pch.h Vtestharness_spi_host__Tz2_TBz3.h

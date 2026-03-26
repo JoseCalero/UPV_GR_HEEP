@@ -1,0 +1,240 @@
+// Verilated -*- C++ -*-
+// DESCRIPTION: Verilator output: Model implementation (design independent parts)
+
+#include "Vtestharness__pch.h"
+#include "verilated_fst_c.h"
+
+//============================================================
+// Constructors
+
+Vtestharness::Vtestharness(VerilatedContext* _vcontextp__, const char* _vcname__)
+    : VerilatedModel{*_vcontextp__}
+    , vlSymsp{new Vtestharness__Syms(contextp(), _vcname__, this)}
+    , clk_i{vlSymsp->TOP.clk_i}
+    , rst_ni{vlSymsp->TOP.rst_ni}
+    , boot_select_i{vlSymsp->TOP.boot_select_i}
+    , execute_from_flash_i{vlSymsp->TOP.execute_from_flash_i}
+    , exit_valid_o{vlSymsp->TOP.exit_valid_o}
+    , jtag_tck_i{vlSymsp->TOP.jtag_tck_i}
+    , jtag_tms_i{vlSymsp->TOP.jtag_tms_i}
+    , jtag_trst_ni{vlSymsp->TOP.jtag_trst_ni}
+    , jtag_tdi_i{vlSymsp->TOP.jtag_tdi_i}
+    , jtag_tdo_o{vlSymsp->TOP.jtag_tdo_o}
+    , exit_value_o{vlSymsp->TOP.exit_value_o}
+    , __PVT__spi_device_reg_pkg{vlSymsp->TOP.__PVT__spi_device_reg_pkg}
+    , __PVT____024unit{vlSymsp->TOP.__PVT____024unit}
+    , __PVT__pdm2pcm_reg_pkg{vlSymsp->TOP.__PVT__pdm2pcm_reg_pkg}
+    , __PVT__pad_control_reg_pkg{vlSymsp->TOP.__PVT__pad_control_reg_pkg}
+    , __PVT__serial_link_reg_pkg{vlSymsp->TOP.__PVT__serial_link_reg_pkg}
+    , __PVT__serial_link_single_channel_reg_pkg{vlSymsp->TOP.__PVT__serial_link_single_channel_reg_pkg}
+    , __PVT__core_v_mini_mcu_pkg{vlSymsp->TOP.__PVT__core_v_mini_mcu_pkg}
+    , __PVT__power_manager_reg_pkg{vlSymsp->TOP.__PVT__power_manager_reg_pkg}
+    , __PVT__gpio_reg_pkg{vlSymsp->TOP.__PVT__gpio_reg_pkg}
+    , __PVT__i2s_reg_pkg{vlSymsp->TOP.__PVT__i2s_reg_pkg}
+    , __PVT__soc_ctrl_reg_pkg{vlSymsp->TOP.__PVT__soc_ctrl_reg_pkg}
+    , __PVT__fast_intr_ctrl_reg_pkg{vlSymsp->TOP.__PVT__fast_intr_ctrl_reg_pkg}
+    , __PVT__i2c_reg_pkg{vlSymsp->TOP.__PVT__i2c_reg_pkg}
+    , __PVT__rv_plic_reg_pkg{vlSymsp->TOP.__PVT__rv_plic_reg_pkg}
+    , __PVT__rv_timer_reg_pkg{vlSymsp->TOP.__PVT__rv_timer_reg_pkg}
+    , __PVT__uart_reg_pkg{vlSymsp->TOP.__PVT__uart_reg_pkg}
+    , __PVT__obi_spimemio_reg_pkg{vlSymsp->TOP.__PVT__obi_spimemio_reg_pkg}
+    , __PVT__spi_host_reg_pkg{vlSymsp->TOP.__PVT__spi_host_reg_pkg}
+    , __PVT__w25q128jw_controller_reg_pkg{vlSymsp->TOP.__PVT__w25q128jw_controller_reg_pkg}
+    , __PVT__dma_reg_pkg{vlSymsp->TOP.__PVT__dma_reg_pkg}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__ext_xif{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__ext_xif}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__gen_demux_xbar__BRA__0__KET____DOT__demux_xbar_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__gen_demux_xbar__BRA__0__KET____DOT__demux_xbar_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__gen_demux_xbar__BRA__1__KET____DOT__demux_xbar_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__gen_demux_xbar__BRA__1__KET____DOT__demux_xbar_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__gen_demux_xbar__BRA__2__KET____DOT__demux_xbar_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__gen_demux_xbar__BRA__2__KET____DOT__demux_xbar_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__gen_demux_xbar__BRA__3__KET____DOT__demux_xbar_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__gen_demux_xbar__BRA__3__KET____DOT__demux_xbar_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__gen_demux_xbar__BRA__4__KET____DOT__demux_xbar_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__gen_demux_xbar__BRA__4__KET____DOT__demux_xbar_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__gen_demux_xbar__BRA__5__KET____DOT__demux_xbar_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__gen_demux_xbar__BRA__5__KET____DOT__demux_xbar_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__0__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__0__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__1__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__1__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__2__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__2__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__3__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__3__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__4__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__4__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__5__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__5__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__6__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__6__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__7__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__7__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__8__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__8__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__9__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__9__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__10__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__10__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__11__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__11__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__12__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__12__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__13__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__13__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__14__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__system_bus_i__DOT__system_xbar_i__DOT__gen_xbar_NtoM__DOT__i_xbar__DOT__gen_outputs__BRA__14__KET____DOT__gen_rr_arb_tree__DOT__i_rr_arb_tree}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__memory_subsystem_i__DOT__ram0_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__memory_subsystem_i__DOT__ram0_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__memory_subsystem_i__DOT__ram1_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__memory_subsystem_i__DOT__ram1_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__memory_subsystem_i__DOT__ram2_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__memory_subsystem_i__DOT__ram2_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__memory_subsystem_i__DOT__ram3_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__memory_subsystem_i__DOT__ram3_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__memory_subsystem_i__DOT__ram4_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__memory_subsystem_i__DOT__ram4_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__memory_subsystem_i__DOT__ram5_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__memory_subsystem_i__DOT__ram5_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__memory_subsystem_i__DOT__ram6_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__memory_subsystem_i__DOT__ram6_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__memory_subsystem_i__DOT__ram7_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__memory_subsystem_i__DOT__ram7_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__memory_subsystem_i__DOT__ram8_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__memory_subsystem_i__DOT__ram8_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__memory_subsystem_i__DOT__ram9_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__memory_subsystem_i__DOT__ram9_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__rv_timer_0_1_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__rv_timer_0_1_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__gpio_ao_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__gpio_ao_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__spi_subsystem_i__DOT__ot_spi_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__spi_subsystem_i__DOT__ot_spi_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_periph_switch_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_periph_switch_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_periph_iso_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_periph_iso_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_0_switch_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_0_switch_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_0_iso_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_0_iso_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_0_retentive_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_0_retentive_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_1_switch_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_1_switch_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_1_iso_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_1_iso_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_1_retentive_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_1_retentive_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_2_switch_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_2_switch_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_2_iso_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_2_iso_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_2_retentive_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_2_retentive_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_3_switch_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_3_switch_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_3_iso_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_3_iso_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_3_retentive_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_3_retentive_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_4_switch_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_4_switch_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_4_iso_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_4_iso_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_4_retentive_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_4_retentive_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_5_switch_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_5_switch_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_5_iso_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_5_iso_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_5_retentive_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_5_retentive_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_6_switch_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_6_switch_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_6_iso_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_6_iso_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_6_retentive_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_6_retentive_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_7_switch_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_7_switch_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_7_iso_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_7_iso_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_7_retentive_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_7_retentive_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_8_switch_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_8_switch_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_8_iso_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_8_iso_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_8_retentive_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_8_retentive_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_9_switch_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_9_switch_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_9_iso_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_9_iso_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_9_retentive_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__ao_peripheral_subsystem_i__DOT__power_manager_i__DOT__power_manager_sequence_ram_9_retentive_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__peripheral_subsystem_i__DOT__spi_host_dma_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__peripheral_subsystem_i__DOT__spi_host_dma_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__peripheral_subsystem_i__DOT__gpio_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__peripheral_subsystem_i__DOT__gpio_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__peripheral_subsystem_i__DOT__rv_timer_2_3_i{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__peripheral_subsystem_i__DOT__rv_timer_2_3_i}
+    , __PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__peripheral_subsystem_i__DOT__spi2_host{vlSymsp->TOP.__PVT__testharness__DOT__gr_heep_i__DOT__core_v_mini_mcu_i__DOT__peripheral_subsystem_i__DOT__spi2_host}
+    , rootp{&(vlSymsp->TOP)}
+{
+    // Register model with the context
+    contextp()->addModel(this);
+    contextp()->traceBaseModelCbAdd(
+        [this](VerilatedTraceBaseC* tfp, int levels, int options) { traceBaseModel(tfp, levels, options); });
+}
+
+Vtestharness::Vtestharness(const char* _vcname__)
+    : Vtestharness(Verilated::threadContextp(), _vcname__)
+{
+}
+
+//============================================================
+// Destructor
+
+Vtestharness::~Vtestharness() {
+    delete vlSymsp;
+}
+
+//============================================================
+// Evaluation function
+
+#ifdef VL_DEBUG
+void Vtestharness___024root___eval_debug_assertions(Vtestharness___024root* vlSelf);
+#endif  // VL_DEBUG
+void Vtestharness___024root___eval_static(Vtestharness___024root* vlSelf);
+void Vtestharness___024root___eval_initial(Vtestharness___024root* vlSelf);
+void Vtestharness___024root___eval_settle(Vtestharness___024root* vlSelf);
+void Vtestharness___024root___eval(Vtestharness___024root* vlSelf);
+
+void Vtestharness::eval_step() {
+    VL_DEBUG_IF(VL_DBG_MSGF("+++++TOP Evaluate Vtestharness::eval_step\n"); );
+#ifdef VL_DEBUG
+    // Debug assertions
+    Vtestharness___024root___eval_debug_assertions(&(vlSymsp->TOP));
+#endif  // VL_DEBUG
+    vlSymsp->__Vm_activity = true;
+    vlSymsp->__Vm_deleter.deleteAll();
+    if (VL_UNLIKELY(!vlSymsp->__Vm_didInit)) {
+        vlSymsp->__Vm_didInit = true;
+        VL_DEBUG_IF(VL_DBG_MSGF("+ Initial\n"););
+        Vtestharness___024root___eval_static(&(vlSymsp->TOP));
+        Vtestharness___024root___eval_initial(&(vlSymsp->TOP));
+        Vtestharness___024root___eval_settle(&(vlSymsp->TOP));
+    }
+    VL_DEBUG_IF(VL_DBG_MSGF("+ Eval\n"););
+    Vtestharness___024root___eval(&(vlSymsp->TOP));
+    // Evaluate cleanup
+    Verilated::endOfEval(vlSymsp->__Vm_evalMsgQp);
+}
+
+//============================================================
+// Events and timing
+bool Vtestharness::eventsPending() { return false; }
+
+uint64_t Vtestharness::nextTimeSlot() {
+    VL_FATAL_MT(__FILE__, __LINE__, "", "No delays in the design");
+    return 0;
+}
+
+//============================================================
+// Utilities
+
+const char* Vtestharness::name() const {
+    return vlSymsp->name();
+}
+
+//============================================================
+// Invoke final blocks
+
+void Vtestharness___024root___eval_final(Vtestharness___024root* vlSelf);
+
+VL_ATTR_COLD void Vtestharness::final() {
+    Vtestharness___024root___eval_final(&(vlSymsp->TOP));
+}
+
+//============================================================
+// Implementations of abstract methods from VerilatedModel
+
+const char* Vtestharness::hierName() const { return vlSymsp->name(); }
+const char* Vtestharness::modelName() const { return "Vtestharness"; }
+unsigned Vtestharness::threads() const { return 1; }
+void Vtestharness::prepareClone() const { contextp()->prepareClone(); }
+void Vtestharness::atClone() const {
+    contextp()->threadPoolpOnClone();
+}
+std::unique_ptr<VerilatedTraceConfig> Vtestharness::traceConfig() const {
+    return std::unique_ptr<VerilatedTraceConfig>{new VerilatedTraceConfig{false, false, false}};
+};
+
+//============================================================
+// Trace configuration
+
+void Vtestharness___024root__trace_decl_types(VerilatedFst* tracep);
+
+void Vtestharness___024root__trace_init_top(Vtestharness___024root* vlSelf, VerilatedFst* tracep);
+
+VL_ATTR_COLD static void trace_init(void* voidSelf, VerilatedFst* tracep, uint32_t code) {
+    // Callback from tracep->open()
+    Vtestharness___024root* const __restrict vlSelf VL_ATTR_UNUSED = static_cast<Vtestharness___024root*>(voidSelf);
+    Vtestharness__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    if (!vlSymsp->_vm_contextp__->calcUnusedSigs()) {
+        VL_FATAL_MT(__FILE__, __LINE__, __FILE__,
+            "Turning on wave traces requires Verilated::traceEverOn(true) call before time 0.");
+    }
+    vlSymsp->__Vm_baseCode = code;
+    tracep->pushPrefix(std::string{vlSymsp->name()}, VerilatedTracePrefixType::SCOPE_MODULE);
+    Vtestharness___024root__trace_decl_types(tracep);
+    Vtestharness___024root__trace_init_top(vlSelf, tracep);
+    tracep->popPrefix();
+}
+
+VL_ATTR_COLD void Vtestharness___024root__trace_register(Vtestharness___024root* vlSelf, VerilatedFst* tracep);
+
+VL_ATTR_COLD void Vtestharness::traceBaseModel(VerilatedTraceBaseC* tfp, int levels, int options) {
+    (void)levels; (void)options;
+    VerilatedFstC* const stfp = dynamic_cast<VerilatedFstC*>(tfp);
+    if (VL_UNLIKELY(!stfp)) {
+        vl_fatal(__FILE__, __LINE__, __FILE__,"'Vtestharness::trace()' called on non-VerilatedFstC object;"
+            " use --trace-fst with VerilatedFst object, and --trace-vcd with VerilatedVcd object");
+    }
+    stfp->spTrace()->addModel(this);
+    stfp->spTrace()->addInitCb(&trace_init, &(vlSymsp->TOP));
+    Vtestharness___024root__trace_register(&(vlSymsp->TOP), stfp->spTrace());
+}

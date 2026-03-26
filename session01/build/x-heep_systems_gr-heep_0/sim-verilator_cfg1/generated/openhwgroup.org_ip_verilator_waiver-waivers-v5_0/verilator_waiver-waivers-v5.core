@@ -1,0 +1,16 @@
+CAPI=2:
+description: Generated waivers for Verilator 5.XXX
+filesets:
+  waivers:
+    file_type: vlt
+    files:
+    - /home/jamirand/UPM/GR-HEEP/hw/vendor/x-heep/hw/vendor/waiver/lint/common_cells_v5.vlt
+    - /home/jamirand/UPM/GR-HEEP/hw/vendor/x-heep/hw/vendor/waiver/lint/cv32e40p_v5.vlt
+    - /home/jamirand/UPM/GR-HEEP/hw/vendor/x-heep/hw/vendor/waiver/lint/cve2_v5.vlt
+    - /home/jamirand/UPM/GR-HEEP/hw/vendor/x-heep/hw/vendor/waiver/lint/axi_v5.vlt
+    - /home/jamirand/UPM/GR-HEEP/hw/vendor/x-heep/hw/vendor/waiver/lint/register_interface_v5.vlt
+name: openhwgroup.org:ip:verilator_waiver-waivers-v5:0
+targets:
+  default:
+    filesets:
+    - tool_verilator? (waivers)

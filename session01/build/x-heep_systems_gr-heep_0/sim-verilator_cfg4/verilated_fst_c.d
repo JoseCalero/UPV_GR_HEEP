@@ -1,0 +1,19 @@
+verilated_fst_c.o: \
+ /home/jamirand/tools/verilator/5.040/share/verilator/include/verilated_fst_c.cpp \
+ /home/jamirand/tools/verilator/5.040/share/verilator/include/verilated.h \
+ /home/jamirand/tools/verilator/5.040/share/verilator/include/verilated_config.h \
+ /home/jamirand/tools/verilator/5.040/share/verilator/include/verilatedos.h \
+ /home/jamirand/tools/verilator/5.040/share/verilator/include/verilated_types.h \
+ /home/jamirand/tools/verilator/5.040/share/verilator/include/verilated_funcs.h \
+ /home/jamirand/tools/verilator/5.040/share/verilator/include/verilated_fst_c.h \
+ /home/jamirand/tools/verilator/5.040/share/verilator/include/verilated_trace.h \
+ /home/jamirand/tools/verilator/5.040/share/verilator/include/gtkwave/fastlz.c \
+ /home/jamirand/tools/verilator/5.040/share/verilator/include/gtkwave/fastlz.h \
+ /home/jamirand/tools/verilator/5.040/share/verilator/include/gtkwave/fastlz.c \
+ /home/jamirand/tools/verilator/5.040/share/verilator/include/gtkwave/fstapi.c \
+ /home/jamirand/tools/verilator/5.040/share/verilator/include/gtkwave/fstapi.h \
+ /home/jamirand/tools/verilator/5.040/share/verilator/include/gtkwave/lz4.h \
+ /home/jamirand/tools/verilator/5.040/share/verilator/include/gtkwave/lz4.c \
+ /home/jamirand/tools/verilator/5.040/share/verilator/include/verilated_trace_imp.h \
+ /home/jamirand/tools/verilator/5.040/share/verilator/include/verilated_intrinsics.h \
+ /home/jamirand/tools/verilator/5.040/share/verilator/include/verilated_threads.h

@@ -1,0 +1,3 @@
+Vtestharness_dma_reg_pkg__DepSet_h89f9c3a6__0__Slow.o: \
+ Vtestharness_dma_reg_pkg__DepSet_h89f9c3a6__0__Slow.cpp \
+ Vtestharness__pch.h Vtestharness_dma_reg_pkg.h

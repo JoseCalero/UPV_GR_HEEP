@@ -1,0 +1,3 @@
+Vtestharness_uart_reg_pkg__DepSet_ha8d6cd93__0__Slow.o: \
+ Vtestharness_uart_reg_pkg__DepSet_ha8d6cd93__0__Slow.cpp \
+ Vtestharness__pch.h Vtestharness_uart_reg_pkg.h

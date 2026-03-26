@@ -1,0 +1,4 @@
+Vtestharness_power_manager_sequence__DepSet_h5bd7df24__0__Slow.o: \
+ Vtestharness_power_manager_sequence__DepSet_h5bd7df24__0__Slow.cpp \
+ Vtestharness__pch.h Vtestharness__Syms.h \
+ Vtestharness_power_manager_sequence.h

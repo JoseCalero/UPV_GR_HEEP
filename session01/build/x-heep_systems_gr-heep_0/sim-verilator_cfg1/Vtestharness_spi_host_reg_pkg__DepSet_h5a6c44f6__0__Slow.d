@@ -1,0 +1,3 @@
+Vtestharness_spi_host_reg_pkg__DepSet_h5a6c44f6__0__Slow.o: \
+ Vtestharness_spi_host_reg_pkg__DepSet_h5a6c44f6__0__Slow.cpp \
+ Vtestharness__pch.h Vtestharness_spi_host_reg_pkg.h

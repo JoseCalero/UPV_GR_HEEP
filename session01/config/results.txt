@@ -1,0 +1,6 @@
+make mcu-gen PYTHON_X_HEEP_CFG=/home/.../GR-HEEP/config/e20_one2M_10B.py X_HEEP_CFG=/home/.../GR-HEEP/hw/vendor/x-heep/configs/python_unsupported.hjson
+
+e20_one2M_10B.py           config | 1085902 cycles
+e40p_one2M_10B.py          config | XXXXXXX cycles
+e40P_N2M_2B_INT8B.py       config | XXXXXXX cycles
+e40P_xpulp_N2M_2B_INT8B.py config |  208602 cycles
