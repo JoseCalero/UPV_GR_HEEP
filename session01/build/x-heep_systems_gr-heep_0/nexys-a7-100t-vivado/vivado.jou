@@ -1,0 +1,16 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Mon Jul  6 18:30:37 2026
+# Process ID: 24228
+# Current directory: /home/mfpdsmbaa/LabCatreda/GR-HEEP/build/x-heep_systems_gr-heep_0/nexys-a7-100t-vivado
+# Command line: vivado -notrace -mode batch -source x-heep_systems_gr-heep_0_synth.tcl x-heep_systems_gr-heep_0_run.tcl x-heep_systems_gr-heep_0.xpr
+# Log file: /home/mfpdsmbaa/LabCatreda/GR-HEEP/build/x-heep_systems_gr-heep_0/nexys-a7-100t-vivado/vivado.log
+# Journal file: /home/mfpdsmbaa/LabCatreda/GR-HEEP/build/x-heep_systems_gr-heep_0/nexys-a7-100t-vivado/vivado.jou
+# Running On: MFPDSMBAA1, OS: Linux, CPU Frequency: 2108.383 MHz, CPU Physical cores: 14, Host memory: 33089 MB
+#-----------------------------------------------------------
+open_project x-heep_systems_gr-heep_0.xpr
+source x-heep_systems_gr-heep_0_synth.tcl -notrace
+source x-heep_systems_gr-heep_0_run.tcl -notrace

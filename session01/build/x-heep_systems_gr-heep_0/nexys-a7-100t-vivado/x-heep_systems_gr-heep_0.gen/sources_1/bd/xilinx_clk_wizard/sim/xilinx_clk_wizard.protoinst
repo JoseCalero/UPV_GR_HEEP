@@ -1,0 +1,9 @@
+{
+	"version": "1.0",
+	"modules": {
+		"xilinx_clk_wizard": {
+			"proto_instances": {
+			}
+		}
+	}
+}

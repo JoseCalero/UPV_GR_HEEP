@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Mon Jul  6 18:30:08 2026
+# Process ID: 23981
+# Current directory: /home/mfpdsmbaa/LabCatreda/GR-HEEP/build/x-heep_systems_gr-heep_0/nexys-a7-100t-vivado/x-heep_systems_gr-heep_0.runs/xilinx_mem_gen_4096_synth_1
+# Command line: vivado -log xilinx_mem_gen_4096.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source xilinx_mem_gen_4096.tcl
+# Log file: /home/mfpdsmbaa/LabCatreda/GR-HEEP/build/x-heep_systems_gr-heep_0/nexys-a7-100t-vivado/x-heep_systems_gr-heep_0.runs/xilinx_mem_gen_4096_synth_1/xilinx_mem_gen_4096.vds
+# Journal file: /home/mfpdsmbaa/LabCatreda/GR-HEEP/build/x-heep_systems_gr-heep_0/nexys-a7-100t-vivado/x-heep_systems_gr-heep_0.runs/xilinx_mem_gen_4096_synth_1/vivado.jou
+# Running On: MFPDSMBAA1, OS: Linux, CPU Frequency: 5158.240 MHz, CPU Physical cores: 14, Host memory: 33089 MB
+#-----------------------------------------------------------
+source xilinx_mem_gen_4096.tcl -notrace
